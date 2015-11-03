@@ -1,0 +1,16 @@
+body {
+	background-color: #4D394B;
+	
+}
+
+h1 {
+	text-align: center;
+	text-decoration: underline;
+	color:#D7F5FA;
+}
+
+p {
+	text-align: center;
+	color: #D7F5FA;
+	padding: 10px;
+}
