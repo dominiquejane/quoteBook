@@ -9,19 +9,34 @@ app.service('mainService', function() {
     { text: 'The most difficult thing is the decision to act, the rest is merely tenacity.', author: 'Amelia Earhart'},
     { text: 'Life is what happens to you while you\'re busy making other plans.', author: 'John Lennon'},
     { text: 'What even is a jQuery?', author: 'Tyler S. McGinnis'}
-  ];	
+  ];
 
   this.getData = function() {
-  	return quotes;
+ 		return quotes;
   };
 
-  this.addData = function(data) {
-  	if (data.text && data.author) {
-  		quotes.push(data);
+  this.addData = function(inputData) {
+  		var newobj = {}
+  		for(var prop in inputData) {
+  			newobj[prop] = inputData[prop];
+  		}
+
+  	if (newobj.text && newobj.author) {
+  		quotes.push(newobj);
+  		console.log(newobj);
+  	}
+  	else if (!newobj.text && newobj.author) {
+  		alert("Please enter a quote!");
+  	}
+  	else if (newobj.text && !newobj.author) {
+  		alert("Who said this quote? Type 'Anonymous' if you do not know.")
+  	}
+  	else {
+  		alert("Please input a quote and its author!")
   	}
   };
 
-  this.removeData = function(line) {
+  this.removeData = function(line)  {
   	for(var i = 0; i < quotes.length; i ++) {
   		if(line === quotes[i].text) {
   			quotes.splice(i,1);

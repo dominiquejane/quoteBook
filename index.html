@@ -8,10 +8,31 @@
 <body ng-app="quoteBook" ng-controller="mainCtrl">
 	 <h1>Quotable Quotes</h1>
 
+	<div class="quoteOptions">
+		<div class="filter">
+			<input type="text" placeholder="Search for Quotes" ng-model="searchTerm.text">
+			<input type="text" placeholder="Search for Authors" ng-model="searchTerm.author">
+		</div>
+		
+		<div class="add">
+			<form>
+			<input type="text" placeholder="New Author" ng-model="inputQuote.author"/>
+			<input type="text" placeholder="New Quote" ng-model="inputQuote.text"/>
+			<!-- <input type="submit" ng-click="addData(inputQuote)"/> -->
+			<button ng-click="addData(inputQuote)">Add Quote</button>
+			</form>
+		</div>
+		
+		<div class="remove">
+			<form>
+			<input type="text" placeholder="Enter Quote" ng-model="removeQuote">
+			<button ng-click="removeData(removeQuote)">Remove Quote</button>
+			</form>		
+		</div>
+	</div>
 
-
-	 <div ng-repeat="quote in quotes">
-	 	<p>{{quote.text}}</p>
+	 <div ng-repeat="quote in quotes | filter: searchTerm">
+	 	<p>{{quote.text}} <br> ~{{quote.author}}</p>
 	 </div>
 
 

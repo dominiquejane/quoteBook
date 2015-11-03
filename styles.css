@@ -1,6 +1,6 @@
 body {
 	background-color: #4D394B;
-	
+
 }
 
 h1 {
@@ -14,3 +14,12 @@ p {
 	color: #D7F5FA;
 	padding: 10px;
 }
+
+.quoteOptions {
+	text-align: center;
+}
+
+.filter, .add, .remove {
+	padding: 5px;
+}
+
