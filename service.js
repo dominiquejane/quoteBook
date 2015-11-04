@@ -2,7 +2,7 @@ var app = angular.module('quoteBook');
 app.service('mainService', function() {
 
 	
-this.getData = function() {
+
 	if(!localStorage.quotes) { //check if the quotes object is stored, if it's not, then set it equal to the default values below:
 
 		var quotes = [
@@ -15,7 +15,7 @@ this.getData = function() {
 	    { text: 'What even is a jQuery?', author: 'Tyler S. McGinnis'}
 	  ];
 
-	  localStorage.quotes = JSON.stringify(quotes); //change the quotes object into a valid format, i.e. string.
+	  localStorage.quotes = JSON.stringify(quotes); //change the quotes object into a valid format for storage, i.e. string.
 	}
 	else {
 		var quotes = JSON.parse(localStorage.quotes);
@@ -23,7 +23,7 @@ this.getData = function() {
 		console.log(quotes); //check to see if it parsed/loaded correctly
 	}
 
-  
+  this.getData = function() {
   	console.log(quotes);
  		return quotes;
   };
